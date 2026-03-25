@@ -7,7 +7,9 @@
 ## Explaination of Fix
 
 * While searching through the decompiled code inside the mono build, I found that none of the FMOD platform profiles shipped with Tainted Grail have a SpeakerMode being set, including the fallback Default profile. With no SpeakerMode being set at all, this causes the game to fall back to the FMOD default, of Stereo.
-* NOTE: FMOD will automatically downmix to your systems channel output, so its safe to just specify SPEAKERMODE._7POINT1
+* This dll injection just overrides the platform lookup for setting the speakermode, and instead just hard codes `SPEAKERMODE._7POINT1`
+* NOTE: FMOD will automatically downmix to your systems channel output, so its safe to just specify `SPEAKERMODE._7POINT1`
+  * See https://www.fmod.com/docs/2.02/api/mixing-and-routing-in-the-core-api.html#upmixdownmix-behavior for additional information
 
 ## Requirements
 * bepinex (6.x / be)
@@ -25,15 +27,15 @@
 
 ## FOA_Surround_Fix.dll
 
-* Download latest version of BepInEx (IL2CPP) from their builds page, and uncompress the package to your $(path-to-game) directory.
-* Download latest FOA_Surround_fix.dll from https://github.com/chrastoph/FOA_Surround_Fix/releases
+* Download latest version of BepInEx (IL2CPP) from their builds page, and uncompress the package to your `$(path-to-game)` directory.
+* Download latest `FOA_Surround_fix.dll` from https://github.com/chrastoph/FOA_Surround_Fix/releases
 * Jump to common below
 
 ## If you Want to Build the dll yourself
 
-* Download latest version of BepInEx (IL2CPP) from their builds page, and uncompress the package to your $(path-to-game) directory.
+* Download latest version of BepInEx (IL2CPP) from their builds page, and uncompress the package to your `$(path-to-game)` directory.
 * Check out the git repository to a `$(git-path)` directory of your chosing
-* Run The game at least once expect a longer than normal startup time, this will populate files into $(path-to-game)/BepInEx/interop
+* Run The game at least once. Expect a longer than normal startup time, this will populate files into $(path-to-game)/BepInEx/interop which are needed to compile the dll
 * copy `$(path-to-game)/BepInEx/interop/FMODUnity.dll` to `$(git-path)/lib/`
 * Make sure you have dotnet runtime, and sdk installed
 * run `dotnet build` in the `$(git-path)` directory
