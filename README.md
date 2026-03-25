@@ -12,12 +12,12 @@ Tainted Grail: The Fall of Avalon Surround Sound Fixes
 
 ## Requirements
 * bepinex (6.x / be)
-** https://builds.bepinex.dev/projects/bepinex_be
-** As of 20260325 I've tested against 
-*** https://builds.bepinex.dev/projects/bepinex_be/755/BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.755%2B3fab71a.zip
+  * https://builds.bepinex.dev/projects/bepinex_be
+  * As of 20260325 I've tested against 
+    * https://builds.bepinex.dev/projects/bepinex_be/755/BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.755%2B3fab71a.zip
 
 * dotnet if you're looking to compile the dll yourself.
-** https://dotnet.microsoft.com/en-us/download
+  * https://dotnet.microsoft.com/en-us/download
 
 ## TLDR
 
