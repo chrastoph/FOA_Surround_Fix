@@ -33,16 +33,16 @@ Tainted Grail: The Fall of Avalon Surround Sound Fixes
 ## If you Want to Build the dll yourself
 
 * Download latest version of BepInEx (IL2CPP) from their builds page, and uncompress the package to your $(path-to-game) directory.
-* Check out the git repository to a $(git-path) directory of your chosing
+* Check out the git repository to a `$(git-path)` directory of your chosing
 * Run The game at least once expect a longer than normal startup time, this will populate files into $(path-to-game)/BepInEx/interop
-* copy $(path-to-game)/BepInEx/interop/FMODUnity.dll to $(git-path)/lib/
+* copy `$(path-to-game)/BepInEx/interop/FMODUnity.dll` to `$(git-path)/lib/`
 * Make sure you have dotnet runtime, and sdk installed
-* run `dotnet build` in the $(git-path) directory
-* Assuming no compile errors, you should now have a $(git-path)/bin/Debug/net6.0/FOA_Surround_Fix.dll
+* run `dotnet build` in the `$(git-path)` directory
+* Assuming no compile errors, you should now have a `$(git-path)/bin/Debug/net6.0/FOA_Surround_Fix.dll`
 * Jump to common below
 
 ## Common
-* Drop FOA_Surround_fix.dll into $(path-to-game)/BepInEx/plugins/
+* Drop `FOA_Surround_fix.dll` into `$(path-to-game)/BepInEx/plugins/`
 * Start the game
 * BepinInEx logs should look something like this to verify if the plugin is working.
 
