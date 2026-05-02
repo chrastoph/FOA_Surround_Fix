@@ -1,7 +1,7 @@
 # Tainted Grail: The Fall of Avalon -- Surround Sound Fixes
 
 ## Notes
-* This version of the fix is designed for use with the main branch of the game, compared to my old fix which required the mono branch.
+* This version of the fix supports both the main branch, as well as the mono branch of the game. 
 * I Would always show caution about downloading a dll/binary from the internet, but have included a prebuilt dll on the releases page
 * Dolby Atmos / Winsonic
   * The plugin now supports forcing WINSONIC inside of FMOD see: plugin config file later.
