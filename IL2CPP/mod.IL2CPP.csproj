@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Product>Tainted Grail: Fall of Avalon - Surround Sound Fixes - Main Branch</Product>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>FOA_Surround_Fix.IL2CPP</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.*" IncludeAssets="compile" />
+    <Reference Include="FMODUnity">
+      <HintPath>$(RepoRoot)/lib/IL2CPP/FMODUnity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

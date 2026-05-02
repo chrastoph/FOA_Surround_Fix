@@ -1,0 +1,68 @@
+<Project>
+
+  <PropertyGroup>
+    <PluginAuthor>Chris Andrews</PluginAuthor>
+    <LastModified>20260502042800</LastModified>
+    <AssemblyName>FOA_Surround_Fix</AssemblyName>
+    <Product>Tainted Grail: Fall of Avalon - Surround Sound Fixes</Product>
+    <Version>1.1.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json;
+      https://nuget.samboy.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+    <RootNamespace>FOA_Surround_Fix</RootNamespace>
+    <RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
+    <BaseOutputPath>$(RepoRoot)\.artifacts\$(MSBuildProjectName)\bin\</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(RepoRoot)\.artifacts\$(MSBuildProjectName)\obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+
+  <Target Name="GenerateBuildInfo" BeforeTargets="BeforeCompile">
+    <PropertyGroup>
+      <BuildInfoFile>$(IntermediateOutputPath)\BuildInfo.g.cs</BuildInfoFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <BuildInfoLines Include='namespace BuildInfo {'/>
+      <BuildInfoLines Include='    public static class Info {'/>
+      <BuildInfoLines Include='        public const string PluginAuthor = "$(PluginAuthor)"%3B'/>
+      <BuildInfoLines Include='        public const string LastModified = "$(LastModified)"%3B'/>
+      <BuildInfoLines Include='    }'/>
+      <BuildInfoLines Include='}'/>
+    </ItemGroup>
+
+    <WriteLinesToFile
+      File="$(BuildInfoFile)"
+      Overwrite="true"
+      Lines="@(BuildInfoLines)"/>
+
+    <ItemGroup>
+      <Compile Include="$(BuildInfoFile)" />
+    </ItemGroup>
+
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+
+    <!-- 
+      This is a bit of a mistake, that I'm not fixing for now.
+      Im not sure if its safe to cross compile mono vs il2cpp against a single fmodunity.dll from bepinex/interop/ or from the mono build of the game.
+      The Correct solution is to have both, and compile individually, or just compile the one that they need
+      I think its simple enough where it wont be an issue, but its certainly sloppy.
+    -->
+    <!-- Use this for both builds, but I've defined this in both mods project files instead, comment those out if you enable this
+    <Reference Include="FMODUnity">
+    <HintPath>$(MSBuildThisFileDirectory)/lib/FMODUnity.dll</HintPath>
+      <Private>False</Private>
+    </Reference> -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)/common/*.cs" Link="Common\%(Filename)%(Extension)" />
+  </ItemGroup>
+
+</Project>

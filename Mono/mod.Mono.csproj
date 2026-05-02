@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Product>Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch</Product>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>FOA_Surround_Fix.Mono</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Unity.Mono" Version="6.0.0-be.*" IncludeAssets="compile" />
+    <Reference Include="FMODUnity">
+      <HintPath>$(RepoRoot)/lib/Mono/FMODUnity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

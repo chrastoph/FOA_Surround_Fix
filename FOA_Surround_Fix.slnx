@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/IL2CPP/">
+    <Project Path="IL2CPP/mod.IL2CPP.csproj" />
+  </Folder>
+  <Folder Name="/Mono/">
+    <Project Path="Mono/mod.Mono.csproj" />
+  </Folder>
+</Solution>
