@@ -44,7 +44,7 @@
 
 ## If you Want to Build the dll yourself
 
-* Download latest version of BepInEx (IL2CPP) from their builds page, and uncompress the package to your `$(path-to-game)` directory.
+* Download latest version of BepInEx (IL2CPP/Mono) from their builds page, and uncompress the package to your `$(path-to-game)` directory.
 * Check out the git repository to a `$(git-path)` directory of your chosing
 * Make sure you have dotnet runtime, and sdk installed
 * Main Branch - IL2CPP
