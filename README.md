@@ -58,7 +58,7 @@
   * Assuming no compile errors, you should now have a `$(git-path)/.artifacts/mod.Mono/bin/Debug/netstandard2.1/FOA_Surround_Fix.mono.dll`
 * Both
   * For what its worth, I added in a solution to compile both dlls
-  * Required both DLL's to be populated in `$(git-path)/lib/IL2CPP/` and `$(got-path)/lib/Mono/`
+  * Required both DLL's to be populated in `$(git-path)/lib/IL2CPP/` and `$(git-path)/lib/Mono/`
   * `dotnet build FOA_Surround_Fix.slnx`
 * Jump to common below
 
