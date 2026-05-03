@@ -8,6 +8,8 @@
   * Im not actually sure if this is just putting a 7.1 bed in a dolby atmos stream
   * I haven't really tested this well, I only have a 9 channel receiver at the moment, and my overheads aren't connectedanymore, and I cant really tell with my receviers virtual atmos that well with the limited testing ive done.
   * Eventually I'll find my dac and headphones to test this properly. 
+* Linux Users
+  * In order to load bepinex you need to allow dll overrides with a command line update of something like `WINEDLLOVERRIDES="winhttp=n,b" %command%`
 
 ## Explaination of Fix
 
