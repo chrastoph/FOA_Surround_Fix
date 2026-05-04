@@ -2,6 +2,7 @@
 
 ## Notes
 * This version of the fix supports both the main branch, as well as the mono branch of the game. 
+  * If you are using BepInEx 5 with the Mono Branch, there is a dll for you as well.
 * I Would always show caution about downloading a dll/binary from the internet, but have included a prebuilt dll on the releases page
 * Dolby Atmos / Winsonic
   * The plugin now supports forcing WINSONIC inside of FMOD see: plugin config file later.
