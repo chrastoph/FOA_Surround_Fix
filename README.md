@@ -21,9 +21,13 @@
 ## Requirements
 * bepinex (6.x / be)
   * https://builds.bepinex.dev/projects/bepinex_be
-  * As of 20260502 I've tested against 
+  * As of 20260504 I've tested against 
     * https://builds.bepinex.dev/projects/bepinex_be/755/BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.755%2B3fab71a.zip
     * https://builds.bepinex.dev/projects/bepinex_be/755/BepInEx-Unity.Mono-win-x64-6.0.0-be.755%2B3fab71a.zip
+* bepinex (5.x)
+  * https://github.com/bepinex/bepinex/releases
+  * As of 20260504 I've tested against
+    * https://github.com/BepInEx/BepInEx/releases/download/v5.4.23.5/BepInEx_linux_x64_5.4.23.5.zip 
 
 * dotnet if you're looking to compile the dll yourself.
   * https://dotnet.microsoft.com/en-us/download
@@ -58,21 +62,34 @@
   * copy `$(path-to-game)/Fall of Avalon_Data/Managed/FMODUnity.dll` to `$(git-path)/lib/Mono/`
   * run `dotnet build` in the `$(git-path)/Mono/` directory
   * Assuming no compile errors, you should now have a `$(git-path)/.artifacts/mod.Mono/bin/Debug/netstandard2.1/FOA_Surround_Fix.mono.dll`
+* Mono Branch for BepInEx 5
+  * Note: This requires a lot of extra libs to be pulled in, in BepInEx6 this is done via NuGet
+  * copy `$(path-to-game)/Fall of Avalon_Data/Managed/FMODUnity.dll` to `$(git-path)/lib/Mono_BepInEx5/`
+  * copy `$(path-to-game)/Fall of Avalon_Data/Managed/UnityEngine.dll` to `$(git-path)/lib/Mono_BepInEx5/`
+  * copy `$(path-to-game)/Fall of Avalon_Data/Managed/UnityEngine.CoreModule.dll` to `$(git-path)/lib/Mono_BepInEx5/`
+  * copy `$(path-to-game)/BepInEx/core/0Harmony.dll` to `$(git-path)/lib/Mono_BepInEx5/`
+  * copy `$(path-to-game)/BepInEx/core/BepInEx.dll` to `$(git-path)/lib/Mono_BepInEx5/`
+  * run `dotnet build` in the `$(git-path)/Mono_BepInEx5/` directory
+  * Assuming no compile errors, you should now have a `$(git-path)/.artifacts/mod.Mono_bepinex5/bin/Debug/netstandard2.1/FOA_Surround_Fix.bepinex5.Mono.dll`
 * Both
-  * For what its worth, I added in a solution to compile both dlls
-  * Required both DLL's to be populated in `$(git-path)/lib/IL2CPP/` and `$(git-path)/lib/Mono/`
+  * For what its worth, I added in a solution to compile both dlls for BepInEx6
+  * Required both versions of FMODUnity.dll to be populated into `$(git-path)/lib/IL2CPP/` and `$(git-path)/lib/Mono/`
   * `dotnet build FOA_Surround_Fix.slnx`
 * Jump to common below
 
 ## Common
-* Drop `FOA_Surround_fix.(IL2CPP|Mono).dll` into `$(path-to-game)/BepInEx/plugins/`
+* Copy Your compiled DLL into `$(path-to-game)/BepInEx/plugins/`
+  * For Main Branch: `FOA_Surround_fix.IL2CPP.dll`
+  * For Mono Branch: `FOA_Surround_fix.Mono.dll`
+  * For Mono Branch + BepInEx5: `FOA_Surround_fix.bepinex5.Mono.dll`
 * Start the game
-* BepinInEx logs should look something like this to verify if the plugin is working.
+* BepInEx logs should look something like this to verify if the plugin is working.
 * Config
   * BepInEx Will automatically create a config file in `$(path-to-game)/BepInEx/config/` after its first run
   * Config can be modified with a text editor of your choice, or with the BepInEx configuration manager in game.
     * Main Branch - FOA_Surround_Fix.IL2CPP.cfg
     * Mono Branch - FOA_Surround_Fix.Mono.cfg
+    * Mono Branch + BepInEx5 - FOA_Surround_Fix.bepinex5.Mono.cfg
   * The Following Settings can be changed
     * `SpeakerMode=$(x) (7.1, 5.1, stereo)`
     * `OutputType=$(x) (WASAPI, WINSONIC)`
