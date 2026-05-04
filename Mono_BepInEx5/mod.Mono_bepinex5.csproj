@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Product>Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch - BepInEx 5</Product>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>FOA_Surround_Fix.bepinex5.Mono</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="BepInEx">
+      <HintPath>$(RepoRoot)/lib/Mono_BepInEx5/BepInEx.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(RepoRoot)/lib/Mono_BepInEx5/0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(RepoRoot)/lib/Mono_BepInEx5/UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(RepoRoot)/lib/Mono_BepInEx5/UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FMODUnity">
+      <HintPath>$(RepoRoot)/lib/Mono_BepInEx5/FMODUnity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
