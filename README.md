@@ -70,11 +70,13 @@
 * BepinInEx logs should look something like this to verify if the plugin is working.
 * Config
   * BepInEx Will automatically create a config file in `$(path-to-game)/BepInEx/config/` after its first run
+  * Config can be modified with a text editor of your choice, or with the BepInEx configuration manager in game.
     * Main Branch - FOA_Surround_Fix.IL2CPP.cfg
     * Mono Branch - FOA_Surround_Fix.Mono.cfg
-  * The Following Settings can be done
+  * The Following Settings can be changed
     * `SpeakerMode=$(x) (7.1, 5.1, stereo)`
     * `OutputType=$(x) (WASAPI, WINSONIC)`
+  * Since the plugin taps into FMOD during initialization, After changing the config, a game restart is required.
 
 ```
 [Info   :   BepInEx] Loading [Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch 1.1.0]
