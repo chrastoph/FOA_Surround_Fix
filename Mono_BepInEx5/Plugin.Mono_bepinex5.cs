@@ -19,7 +19,7 @@ public class Plugin : BaseUnityPlugin
 
     PluginLog.Info($"Plugin {MyPluginInfo.PLUGIN_GUID} (Mono) loaded -- version:{MyPluginInfo.PLUGIN_VERSION} {BuildInfo.Info.PluginAuthor} @ {BuildInfo.Info.LastModified}");
 
-    SpeakerModeConfig = Config.Bind("Audio","SpeakerMode","5.1","Speaker mode: Stereo, 2.0, Quad, 4.0, Surround, 5.0, 5.1, 7.1, 7.1.4");
+    SpeakerModeConfig = Config.Bind("Audio","SpeakerMode","7.1","Speaker mode: Stereo, 2.0, Quad, 4.0, Surround, 5.0, 5.1, 7.1, 7.1.4");
     PluginConfig.SpeakerMode = SpeakerModeConfig.Value;
 
     OutputTypeConfig = Config.Bind("Audio","OutputType","WASAPI","Output Type: WASAPI, WINSONIC");

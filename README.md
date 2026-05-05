@@ -1,10 +1,11 @@
 # Tainted Grail: The Fall of Avalon -- Surround Sound Fixes
 
-## Notes
-* This version of the fix supports both the main branch, as well as the mono branch of the game. 
-  * If you are using BepInEx 5 with the Mono Branch, there is a dll for you as well.
+## Overview
+* This version of the fix supports both the main branch (bepinex 6), as well as the mono branch (bepinex 5/6) of the game. 
 * I Would always show caution about downloading a dll/binary from the internet, but have included a prebuilt dll on the releases page
-* Defaults to 5.1, if you're 7.1 update the config file
+* Sets Defaults SpeakerMode to 7.1
+  * It has been suggested that you can achieve slightly better positional audio by more directly matching your actual speaker layout
+  * To that end, if you're 4.0 or 5.1 you may want to specify that in the plugin config for optimal surround sound quality.
 * Dolby Atmos / Winsonic
   * The plugin now supports forcing WINSONIC inside of FMOD in the plugin config.
   * You need to have Dolby Atmos / Winsonic enabled in your Windows sound settings.
@@ -18,18 +19,19 @@
 ## Explaination of Fix
 
 * While searching through the decompiled code inside the mono build, I found that none of the FMOD platform profiles shipped with Tainted Grail have a SpeakerMode being set, including the fallback Default profile. With no SpeakerMode being set at all, this causes the game to fall back to the FMOD default, of Stereo.
-* This dll injection just overrides the platform lookup for setting the speakermode, and instead just hard codes `SPEAKERMODE._5POINT1`
-* NOTE: Previously the plugin defaulted to _7POINT1 and we allowed FMOD to downmix to 5.1, but its been reported that the surround sound quality is better at 5.1 by forcing 5.1 directly.
+* This dll injection just overrides the platform lookup for setting the speakermode, and instead just hard codes `SPEAKERMODE._7POINT1`
 * NOTE: FMOD will automatically downmix to your systems channel output, so its safe to just specify `SPEAKERMODE._7POINT1`
   * See https://www.fmod.com/docs/2.02/api/mixing-and-routing-in-the-core-api.html#upmixdownmix-behavior for additional information
 
 ## Requirements
 * bepinex (6.x / be)
+  * For Main/Mono
   * https://builds.bepinex.dev/projects/bepinex_be
   * As of 20260504 I've tested against 
     * https://builds.bepinex.dev/projects/bepinex_be/755/BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.755%2B3fab71a.zip
     * https://builds.bepinex.dev/projects/bepinex_be/755/BepInEx-Unity.Mono-win-x64-6.0.0-be.755%2B3fab71a.zip
 * bepinex (5.x)
+  * For Mono users who want to use other plugins from Nexusmods
   * https://github.com/bepinex/bepinex/releases
   * As of 20260504 I've tested against
     * https://github.com/BepInEx/BepInEx/releases/download/v5.4.23.5/BepInEx_linux_x64_5.4.23.5.zip 
@@ -97,7 +99,7 @@
     * Mono Branch + BepInEx5 - FOA_Surround_Fix.bepinex5.Mono.cfg
   * The Following Settings can be changed
     * `SpeakerMode=$(x)`
-      * `Options: Stereo, 2.0, Quad, 4.0, Surround, 5.1 (default), 7.1, 7.1.4`
+      * `Options: Stereo, 2.0, Quad, 4.0, Surround, 5.1, 7.1 (default), 7.1.4`
       * You may get better positional sound by exactly matching your speaker layout.
     * `OutputType=$(x)`
       * `Options: WASAPI (default), WINSONIC`

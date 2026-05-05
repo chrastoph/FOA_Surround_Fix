@@ -16,7 +16,7 @@ public static class PluginLog
 public static class PluginConfig
 {
   // some defaults
-  public static string SpeakerMode = "5.1";
+  public static string SpeakerMode = "7.1";
   public static string OutputType = "WASAPI";
 }
 
