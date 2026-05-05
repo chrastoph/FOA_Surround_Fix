@@ -56,6 +56,7 @@ if [ "z${target}" == "z6" ]
     mkdir -vp "${t}/plugins"
     cp -v "${s}" "${t}/plugins"
     find "${t}" -type f
+    [ -e "./$dst/nexusmods/${f}.7z" ] && rm -v "./$dst/nexusmods/${f}.7z"
     7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on "./$dst/nexusmods/${f}.7z" "./${t}*"
   fi
 
@@ -71,6 +72,7 @@ if [ "z${target}" == "z6" ]
     mkdir -vp "${t}/plugins"
     cp -v "${s}" "${t}/plugins"
     find "${t}" -type f
+    [ -e "./$dst/nexusmods/${f}.7z" ] && rm -v "./$dst/nexusmods/${f}.7z"
     7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on "./$dst/nexusmods/${f}.7z" "./${t}*"
   fi
 
@@ -88,6 +90,7 @@ elif [ "z${target}" == "z5" ]
     mkdir -vp "${t}/plugins"
     cp -v "${s}" "${t}/plugins"
     find "${t}" -type f
+    [ -e "./$dst/nexusmods/${f}.7z" ] && rm -v "./$dst/nexusmods/${f}.7z"
     7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on "./$dst/nexusmods/${f}.7z" "./${t}*"
   fi
 fi
