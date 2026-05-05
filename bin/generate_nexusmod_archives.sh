@@ -77,7 +77,7 @@ if [ "z${target}" == "z6" ]
 elif [ "z${target}" == "z5" ]
  then
   echo "Creating Archives for BepInEx5 / Mono"
-  s=".artifacts/mod.Mono_bepinex5/bin/Debug/netstandard2.1/FOA_Surround_Fix.Mono.dll"
+  s=".artifacts/mod.Mono_bepinex5/bin/Debug/netstandard2.1/FOA_Surround_Fix.bepinex5.Mono.dll"
   f="FOA_Surround_Fix - Mono - BepInEx ${target} - ${version}"
   t="${dst}/${pid}/${f}"
   if [ ! -e ${s} ] 
