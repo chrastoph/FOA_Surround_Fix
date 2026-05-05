@@ -15,6 +15,8 @@
   * Eventually I'll find my dac and headphones to test this properly. 
 * Linux Users
   * In order to load bepinex you need to allow dll overrides with a command line update of something like `WINEDLLOVERRIDES="winhttp=n,b" %command%`
+* Nexusmods - I've uploaded the plugin to nexusmods for users looking for a more managed install process
+  * https://www.nexusmods.com/taintedgrailthefallofavalon/mods/149
 
 ## Explaination of Fix
 
