@@ -4,9 +4,12 @@
 * This version of the fix supports both the main branch, as well as the mono branch of the game. 
   * If you are using BepInEx 5 with the Mono Branch, there is a dll for you as well.
 * I Would always show caution about downloading a dll/binary from the internet, but have included a prebuilt dll on the releases page
+* Defaults to 5.1, if you're 7.1 update the config file
 * Dolby Atmos / Winsonic
-  * The plugin now supports forcing WINSONIC inside of FMOD see: plugin config file later.
-  * Im not actually sure if this is just putting a 7.1 bed in a dolby atmos stream
+  * The plugin now supports forcing WINSONIC inside of FMOD in the plugin config.
+  * You need to have Dolby Atmos / Winsonic enabled in your Windows sound settings.
+  * If enabling Dolby Atmos, it may be beneficial to set the SpeakerMode to 7.1.4 in the plugin config.
+  * I'm not actually sure if this is just putting a 7.1.4 bed in a dolby atmos stream or if its truely object based.
   * I haven't really tested this well, I only have a 9 channel receiver at the moment, and my overheads aren't connectedanymore, and I cant really tell with my receviers virtual atmos that well with the limited testing ive done.
   * Eventually I'll find my dac and headphones to test this properly. 
 * Linux Users
@@ -15,7 +18,8 @@
 ## Explaination of Fix
 
 * While searching through the decompiled code inside the mono build, I found that none of the FMOD platform profiles shipped with Tainted Grail have a SpeakerMode being set, including the fallback Default profile. With no SpeakerMode being set at all, this causes the game to fall back to the FMOD default, of Stereo.
-* This dll injection just overrides the platform lookup for setting the speakermode, and instead just hard codes `SPEAKERMODE._7POINT1`
+* This dll injection just overrides the platform lookup for setting the speakermode, and instead just hard codes `SPEAKERMODE._5POINT1`
+* NOTE: Previously the plugin defaulted to _7POINT1 and we allowed FMOD to downmix to 5.1, but its been reported that the surround sound quality is better at 5.1 by forcing 5.1 directly.
 * NOTE: FMOD will automatically downmix to your systems channel output, so its safe to just specify `SPEAKERMODE._7POINT1`
   * See https://www.fmod.com/docs/2.02/api/mixing-and-routing-in-the-core-api.html#upmixdownmix-behavior for additional information
 
@@ -92,8 +96,13 @@
     * Mono Branch - FOA_Surround_Fix.Mono.cfg
     * Mono Branch + BepInEx5 - FOA_Surround_Fix.bepinex5.Mono.cfg
   * The Following Settings can be changed
-    * `SpeakerMode=$(x) (7.1, 5.1, stereo)`
-    * `OutputType=$(x) (WASAPI, WINSONIC)`
+    * `SpeakerMode=$(x)`
+      * `Options: Stereo, 2.0, Quad, 4.0, Surround, 5.1 (default), 7.1, 7.1.4`
+      * You may get better positional sound by exactly matching your speaker layout.
+    * `OutputType=$(x)`
+      * `Options: WASAPI (default), WINSONIC`
+      * When using Dolby Atmos it is recommended by Dolby to use 7.1.4, but who knows, testing needed.
+        * https://professional.dolby.com/gaming/gaming-getting-started/dolby-atmos-documentation/#atmos
   * Since the plugin taps into FMOD during initialization, After changing the config, a game restart is required.
 
 ```
