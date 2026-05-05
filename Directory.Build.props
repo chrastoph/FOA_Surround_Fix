@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PluginAuthor>Chris Andrews</PluginAuthor>
-    <LastModified>20260505011300</LastModified>
+    <LastModified>20260505094100</LastModified>
     <AssemblyName>FOA_Surround_Fix</AssemblyName>
     <Product>Tainted Grail: Fall of Avalon - Surround Sound Fixes</Product>
     <Version>1.2.0</Version>
