@@ -53,17 +53,17 @@
 
 ### Chosing Which DLL to install
 * FOA_Surround_Fix.IL2CPP.dll 
-** Intended for use with the Main branch of Tainted Grail - Required BepInEx6
+  * Intended for use with the Main branch of Tainted Grail - Required BepInEx6
 * FOA_Surround_Fix.Mono.dll
-** Intended for use with the Mono branch of Tainted Grail - Requires BepInEx6
+  * Intended for use with the Mono branch of Tainted Grail - Requires BepInEx6
 * FOA_Surround_Fix.bepinex5.Mono.dll
-** Intended for use with the Mono branch of Tainted Grail - Requires BepInEx5
-** Targeting users who already have a BepInEx5 deployment, or who are interested in using other plugins from Nexusmods.
+  * Intended for use with the Mono branch of Tainted Grail - Requires BepInEx5
+  * Targeting users who already have a BepInEx5 deployment, or who are interested in using other plugins from Nexusmods.
 
 ### Nexusmods
 
 * https://www.nexusmods.com/taintedgrailthefallofavalon/mods/149 
-** If You want to manage the plugin via Vortex
+  * If You want to manage the plugin via Vortex
 
 ### Installation Steps
 
@@ -75,7 +75,7 @@
 * Download latest dll from https://github.com/chrastoph/FOA_Surround_Fix/releases 
 * Your DLL into `$(path-to-game)/BepInEx/plugins/`
 * Start the game
-** Expect a longer then normal startup time when starting with BepInEx for the first time.
+  * Expect a longer then normal startup time when starting with BepInEx for the first time.
 * BepInEx logs should look something like this to verify if the plugin is working.
 
 ### Config
