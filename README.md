@@ -26,6 +26,7 @@
   * See https://www.fmod.com/docs/2.02/api/mixing-and-routing-in-the-core-api.html#upmixdownmix-behavior for additional information
 
 ## Requirements
+
 * bepinex (6.x / be)
   * For Main/Mono
   * https://builds.bepinex.dev/projects/bepinex_be
@@ -41,58 +42,41 @@
 * dotnet if you're looking to compile the dll yourself.
   * https://dotnet.microsoft.com/en-us/download
 
-## TLDR
-
-* If you want a binary, please see the releases page.
-* If you want to build yourself, please see the steps below
-
-## FOA_Surround_Fix.IL2CPP.dll / FOA_Surround_Fix.Mono.dll 
-
-* Download latest version of BepInEx, from their builds page, and uncompress the package to your `$(path-to-game)` directory.
-  * For Main Branch you want the IL2CPP release (BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.755%2B3fab71a.zip)
-  * For Mono Branch you want the Mono Release (BepInEx-Unity.Mono-win-x64-6.0.0-be.755%2B3fab71a.zip)
-* Download latest release from https://github.com/chrastoph/FOA_Surround_Fix/releases
-  * FOA_Surround_Fix.IL2CPP.dll for the main branch of the game
-  * FOA_Surround_Fix.Mono.dll for the mono branch of the game
-
-* Jump to common below
-
 ## If you Want to Build the dll yourself
 
-* Download latest version of BepInEx (IL2CPP/Mono) from their builds page, and uncompress the package to your `$(path-to-game)` directory.
-* Check out the git repository to a `$(git-path)` directory of your chosing
-* Make sure you have dotnet runtime, and sdk installed
-* Main Branch - IL2CPP
-  * Run The game at least once. Expect a longer than normal startup time, this will populate files into $(path-to-game)/BepInEx/interop which are needed to compile the dll
-  * copy `$(path-to-game)/BepInEx/interop/FMODUnity.dll` to `$(git-path)/lib/IL2CPP/`
-  * run `dotnet build` in the `$(git-path)/IL2CPP/` directory
-  * Assuming no compile errors, you should now have a `$(git-path)/.artifacts/mod.IL2CPP/bin/Debug/net6.0/FOA_Surround_Fix.IL2CPP.dll`
-* Mono Branch - MONO
-  * copy `$(path-to-game)/Fall of Avalon_Data/Managed/FMODUnity.dll` to `$(git-path)/lib/Mono/`
-  * run `dotnet build` in the `$(git-path)/Mono/` directory
-  * Assuming no compile errors, you should now have a `$(git-path)/.artifacts/mod.Mono/bin/Debug/netstandard2.1/FOA_Surround_Fix.mono.dll`
-* Mono Branch for BepInEx 5
-  * Note: This requires a lot of extra libs to be pulled in, in BepInEx6 this is done via NuGet
-  * copy `$(path-to-game)/Fall of Avalon_Data/Managed/FMODUnity.dll` to `$(git-path)/lib/Mono_BepInEx5/`
-  * copy `$(path-to-game)/Fall of Avalon_Data/Managed/UnityEngine.dll` to `$(git-path)/lib/Mono_BepInEx5/`
-  * copy `$(path-to-game)/Fall of Avalon_Data/Managed/UnityEngine.CoreModule.dll` to `$(git-path)/lib/Mono_BepInEx5/`
-  * copy `$(path-to-game)/BepInEx/core/0Harmony.dll` to `$(git-path)/lib/Mono_BepInEx5/`
-  * copy `$(path-to-game)/BepInEx/core/BepInEx.dll` to `$(git-path)/lib/Mono_BepInEx5/`
-  * run `dotnet build` in the `$(git-path)/Mono_BepInEx5/` directory
-  * Assuming no compile errors, you should now have a `$(git-path)/.artifacts/mod.Mono_bepinex5/bin/Debug/netstandard2.1/FOA_Surround_Fix.bepinex5.Mono.dll`
-* Both
-  * For what its worth, I added in a solution to compile both dlls for BepInEx6
-  * Required both versions of FMODUnity.dll to be populated into `$(git-path)/lib/IL2CPP/` and `$(git-path)/lib/Mono/`
-  * `dotnet build FOA_Surround_Fix.slnx`
-* Jump to common below
+* See README.BUILD.md
 
-## Common
-* Copy Your compiled DLL into `$(path-to-game)/BepInEx/plugins/`
-  * For Main Branch: `FOA_Surround_fix.IL2CPP.dll`
-  * For Mono Branch: `FOA_Surround_fix.Mono.dll`
-  * For Mono Branch + BepInEx5: `FOA_Surround_fix.bepinex5.Mono.dll`
+## Installation
+
+### Chosing Which DLL to install
+* FOA_Surround_Fix.IL2CPP.dll 
+** Intended for use with the Main branch of Tainted Grail - Required BepInEx6
+* FOA_Surround_Fix.Mono.dll
+** Intended for use with the Mono branch of Tainted Grail - Requires BepInEx6
+* FOA_Surround_Fix.bepinex5.Mono.dll
+** Intended for use with the Mono branch of Tainted Grail - Requires BepInEx5
+** Targeting users who already have a BepInEx5 deployment, or who are interested in using other plugins from Nexusmods.
+
+### Nexusmods
+
+* https://www.nexusmods.com/taintedgrailthefallofavalon/mods/149 
+** If You want to manage the plugin via Vortex
+
+### Installation Steps
+
+* Download BepInEx from either builds.bepinex.dev (BepInEx6), or https://github.com/bepinex/bepinex/releases (BepInEx5)
+  * For Main you want the IL2CPP release (BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.755%2B3fab71a.zip)
+  * For Mono/BepInEx6 you want the Mono release (BepInEx-Unity.Mono-win-x64-6.0.0-be.755%2B3fab71a.zip)
+  * For Mono/BepInEx5 you want the Mono release (BepInEx_linux_x64_5.4.23.5.zip)
+* Uncompress BepInEx archive to `$(path-to-game)`
+* Download latest dll from https://github.com/chrastoph/FOA_Surround_Fix/releases 
+* Your DLL into `$(path-to-game)/BepInEx/plugins/`
 * Start the game
+** Expect a longer then normal startup time when starting with BepInEx for the first time.
 * BepInEx logs should look something like this to verify if the plugin is working.
+
+### Config
+
 * Config
   * BepInEx Will automatically create a config file in `$(path-to-game)/BepInEx/config/` after its first run
   * Config can be modified with a text editor of your choice, or with the BepInEx configuration manager in game.
@@ -108,21 +92,3 @@
       * When using Dolby Atmos it is recommended by Dolby to use 7.1.4, but who knows, testing needed.
         * https://professional.dolby.com/gaming/gaming-getting-started/dolby-atmos-documentation/#atmos
   * Since the plugin taps into FMOD during initialization, After changing the config, a game restart is required.
-
-```
-[Info   :   BepInEx] Loading [Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch 1.1.0]
-[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch] Plugin FOA_Surround_Fix.Mono (Mono) loaded -- version:1.1.0 Chris Andrews @ 20260502042800
-[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch] Initializing HarmonyX - Starting
-[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch] Patch - SetSoftwareFormatPatch Loaded
-[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch] Initializing HarmonyX - Complete
-[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch] FMOD Outputs: Found candidates: FMOD.RESULT setOutput(FMOD.OUTPUTTYPE)
-[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch] FMOD Software Formats: Found candidates: FMOD.RESULT setSoftwareFormat(Int32, FMOD.SPEAKERMODE, Int32)
-[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch] Current FMOD Speaker Mode: STEREO
-[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch] Config FMOD SpeakerMode: 7.1
-[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch] Current FMOD OutputType: WASAPI
-[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch] Config FMOD OutputType: WINSONIC
-[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch] Forcing FMOD OutputType to: WINSONIC
-[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch] Final FMOD Speaker Mode: _7POINT1
-[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch] Final FMOD OutputType: WINSONIC
-[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Mono Branch] FMOD Format Parameters: rate:[48000] mode:[_7POINT1] raw:[8]
-```
