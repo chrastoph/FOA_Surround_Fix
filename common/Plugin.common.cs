@@ -43,10 +43,22 @@ public static class SetSoftwareFormatPatch
     switch (PluginConfig.SpeakerMode.Trim().ToLowerInvariant())
     {
       case "stereo":
+      case "2.0":
         speakermode = FMOD.SPEAKERMODE.STEREO;
+        break;
+      case "quad":
+      case "4.0":
+        speakermode = FMOD.SPEAKERMODE.QUAD;
+        break;
+      case "surround":
+      case "5.0":
+        speakermode = FMOD.SPEAKERMODE.SURROUND;
         break;
       case "5.1":
         speakermode = FMOD.SPEAKERMODE._5POINT1;
+        break;
+      case "7.1.4":
+        speakermode = FMOD.SPEAKERMODE._7POINT1POINT4;
         break;
       case "7.1":
       default:
