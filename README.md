@@ -1,6 +1,7 @@
 # Tainted Grail: The Fall of Avalon -- Surround Sound Fixes
 
 ## Overview
+* Last Tested with Game Version 1.22a
 * This version of the fix supports both the main branch (bepinex 6), as well as the mono branch (bepinex 5/6) of the game. 
 * I Would always show caution about downloading a dll/binary from the internet, but have included a prebuilt dll on the releases page
 * Sets Defaults SpeakerMode to 7.1
@@ -27,6 +28,8 @@
 
 ## Requirements
 
+* Tainted Grail: The Fall of Avalon
+  * Last Tested Against: 1.22a
 * bepinex (6.x / be)
   * For Main/Mono
   * https://builds.bepinex.dev/projects/bepinex_be
@@ -92,3 +95,22 @@
       * When using Dolby Atmos it is recommended by Dolby to use 7.1.4, but who knows, testing needed.
         * https://professional.dolby.com/gaming/gaming-getting-started/dolby-atmos-documentation/#atmos
   * Since the plugin taps into FMOD during initialization, After changing the config, a game restart is required.
+
+### Verification
+
+* If everything works as intended $(game-path)/BepInEx/LogOutput.log should contain something like
+
+```
+[Info   :   BepInEx] Loading [Tainted Grail: Fall of Avalon - Surround Sound Fixes - Main Branch 1.2.0]
+[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Main Branch] Plugin FOA_Surround_Fix.IL2CPP (IL2CPP) loaded -- version:1.2.0 Chris Andrews @ 20260505094100
+[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Main Branch] Initializing HarmonyX - Starting
+[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Main Branch] Patch - SetSoftwareFormatPatch Loaded
+[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Main Branch] Initializing HarmonyX - Complete
+[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Main Branch] Current FMOD Speaker Mode: STEREO
+[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Main Branch] Config FMOD SpeakerMode: 7.1.4
+[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Main Branch] Current FMOD OutputType: WASAPI
+[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Main Branch] Config FMOD OutputType: WINSONIC
+[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Main Branch] Final FMOD Speaker Mode: _7POINT1POINT4
+[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Main Branch] Final FMOD OutputType: WINSONIC
+[Info   :Tainted Grail: Fall of Avalon - Surround Sound Fixes - Main Branch] FMOD Format Parameters: rate:[48000] mode:[_7POINT1POINT4] raw:[12]
+```
