@@ -1,7 +1,7 @@
 # Tainted Grail: The Fall of Avalon -- Surround Sound Fixes
 
 ## Overview
-* Last Tested with Game Version 1.22a
+* Last Tested with Game Version 1.23b
 * This version of the fix supports both the main branch (bepinex 6), as well as the mono branch (bepinex 5/6) of the game. 
 * I Would always show caution about downloading a dll/binary from the internet, but have included a prebuilt dll on the releases page
 * Sets Defaults SpeakerMode to 7.1
