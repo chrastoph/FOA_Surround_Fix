@@ -29,7 +29,7 @@
 ## Requirements
 
 * Tainted Grail: The Fall of Avalon
-  * Last Tested Against: 1.22a
+  * Last Tested Against: 1.23b
 * bepinex (6.x / be)
   * For Main/Mono
   * https://builds.bepinex.dev/projects/bepinex_be
