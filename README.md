@@ -73,7 +73,7 @@
   * For Mono/BepInEx5 you want the Mono release (BepInEx_linux_x64_5.4.23.5.zip)
 * Uncompress BepInEx archive to `$(path-to-game)`
 * Download latest dll from https://github.com/chrastoph/FOA_Surround_Fix/releases 
-* Your DLL into `$(path-to-game)/BepInEx/plugins/`
+* Copy your DLL into `$(path-to-game)/BepInEx/plugins/`
 * Start the game
   * Expect a longer then normal startup time when starting with BepInEx for the first time.
 * BepInEx logs should look something like this to verify if the plugin is working.
