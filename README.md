@@ -16,6 +16,8 @@
   * Eventually I'll find my dac and headphones to test this properly. 
 * Linux Users
   * In order to load bepinex you need to allow dll overrides with a command line update of something like `WINEDLLOVERRIDES="winhttp=n,b" %command%`
+  * If you're a headphones user and utilize pipewire, try out IrateGoose to transform the 7.1 stream into a binaural 2.0 (Thanks RealKodiJack for the suggestion)
+    * https://github.com/Barafu/IrateGoose
 * Nexusmods - I've uploaded the plugin to nexusmods for users looking for a more managed install process
   * https://www.nexusmods.com/taintedgrailthefallofavalon/mods/149
 
