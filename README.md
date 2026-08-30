@@ -57,7 +57,14 @@
 
 ## Installation
 
-### Chosing Which DLL to install
+### Nexusmods
+
+* For Automated Installs via Vortex, please see https://www.nexusmods.com/taintedgrailthefallofavalon/mods/149
+* See Config Section Below for additional settings.
+* See Verification Section Below for validation
+
+### Manual Installs
+#### Chosing Which DLL to install
 * FOA_Surround_Fix.IL2CPP.dll 
   * Intended for use with the Main branch of Tainted Grail - Required BepInEx6
 * FOA_Surround_Fix.Mono.dll
@@ -66,12 +73,7 @@
   * Intended for use with the Mono branch of Tainted Grail - Requires BepInEx5
   * Targeting users who already have a BepInEx5 deployment, or who are interested in using other plugins from Nexusmods.
 
-### Nexusmods
-
-* https://www.nexusmods.com/taintedgrailthefallofavalon/mods/149 
-  * If You want to manage the plugin via Vortex
-
-### Installation Steps
+#### Installation Steps
 
 * Download BepInEx from either builds.bepinex.dev (BepInEx6), or https://github.com/bepinex/bepinex/releases (BepInEx5)
   * For Main you want the IL2CPP release (BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.755%2B3fab71a.zip)
