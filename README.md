@@ -1,6 +1,10 @@
-# Tainted Grail: The Fall of Avalon -- Surround Sound Fixes
+# Tainted Grail: The Fall of Avalon -- Surround Sound Fix (5.1 / 7.1 / Spatial Audio)
 
 ## Overview
+* Fixes the Tainted Grail: Fall of Avalon audio bug, where game only runs in 2-channel/Stereo
+* By default, mod forces on 7.1 Surround Sound, and Optionally allows one to enable Dolby Atmos for Headphones/Home Theater
+  
+## Detailed Overview
 * Last Tested with Game Version 1.25
 * This version of the fix supports both the main branch (bepinex 6), as well as the mono branch (bepinex 5/6) of the game. 
 * I Would always show caution about downloading a dll/binary from the internet, but have included a prebuilt dll on the releases page
